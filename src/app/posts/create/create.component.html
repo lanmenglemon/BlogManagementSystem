@@ -1,0 +1,26 @@
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <div class="row panel panel-primary">
+    <div class="panel-heading text-center">Create a post</div>
+    <div class="panel-body">
+      <form [formGroup]="postForm" (ngSubmit)="createPost()">
+        <div class="form-group">
+          <input class="form-control" formControlName="title" type="text" placeholder="Title" /><br />
+          <div *ngIf="(!postForm.get('title').valid) && (postForm.get('title').touched)">
+            <div class="alert alert-danger" *ngIf="postForm.get('title').errors.required">Please enter title!</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="description" type="text" placeholder="Description" /><br />
+          <div *ngIf="(!postForm.get('description').valid) && (postForm.get('description').touched)">
+            <div class="alert alert-danger" *ngIf="postForm.get('description').errors.required">Please enter description!</div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary" [disabled]="!postForm.valid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="col-md-4"></div>

@@ -1,0 +1,16 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">     
+        <table *ngIf="posts && posts.length" class="table table-bordered">
+            <tr *ngFor="let post of posts">
+              <td>
+                <p>Title: {{post.title}}</p>
+                <p>Description: {{post.description}}</p>
+                <app-options [id]="post._id"></app-options>
+              </td>
+            </tr>
+        </table>
+    </div>
+</div>

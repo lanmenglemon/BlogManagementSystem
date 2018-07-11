@@ -1,0 +1,9 @@
+<form [formGroup]="commentForm" (ngSubmit)="submit()">
+  <div class="form-group">
+    <input class="form-control" formControlName="content" placeholder="Content" type="text"/>
+    <div *ngIf="(!commentForm.get('content').valid) && (commentForm.get('content').touched)">
+      <div class="alert alert-danger" *ngIf="commentForm.get('content').errors.required">Please enter comment!</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!commentForm.valid">Submit</button>
+</form>

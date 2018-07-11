@@ -1,0 +1,9 @@
+<table class="table table-bordered">
+    <tr *ngFor="let comment of commArray">
+        <td>
+            <p>{{comment.username}}: {{comment.content}}</p>
+        </td>
+    </tr>
+</table>
+<button class="btn btn-default btn-sm" (click)="addComment()">Add a comment</button><br/>
+<app-add *ngIf="showHideAddComment" [postId]="postId" (commentToparent)="commentFnParent($event)"></app-add>

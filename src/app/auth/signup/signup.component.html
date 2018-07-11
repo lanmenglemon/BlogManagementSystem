@@ -1,0 +1,26 @@
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <div class="row panel panel-primary">
+    <div class="panel-heading text-center">Sign Up</div>
+    <div class="panel-body">
+      <form [formGroup]="signupForm" (ngSubmit)="signup()">
+        <div class="form-group">
+          <input class="form-control" formControlName="username" type="text" placeholder="Username" /><br />
+          <div *ngIf="(!signupForm.get('username').valid) && (signupForm.get('username').touched)">
+            <div class="alert alert-danger" *ngIf="signupForm.get('username').errors.required">Please enter username!</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="password" type="text" placeholder="Password" /><br />
+          <div *ngIf="(!signupForm.get('password').valid) && (signupForm.get('password').touched)">
+            <div class="alert alert-danger" *ngIf="signupForm.get('password').errors.required">Please enter password!</div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Sign up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="col-md-4"></div>
